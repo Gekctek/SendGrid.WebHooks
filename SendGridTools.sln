@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A90EE21B-288B-4283-8E29-85359C5F2815}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E3C2D709-C2CE-4EA2-A28E-D9DCD3BBACD3}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "edjCase.SendGrid.WebHooks", "src\SendGrid.WebHooks\edjCase.SendGrid.WebHooks.xproj", "{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF} = {A90EE21B-288B-4283-8E29-85359C5F2815}
+	EndGlobalSection
+EndGlobal
