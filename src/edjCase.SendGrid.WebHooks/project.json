@@ -1,10 +1,11 @@
 ﻿{
 	"version": "1.0.0-rc1-1",
-	"description": "Library",
-	"authors": [ "ecelletti" ],
-	"tags": [ "" ],
-	"projectUrl": "",
-	"licenseUrl": "",
+	"description": "WebHook middleware for the SendGrid api using AspNet Core.",
+	"authors": [ "Gekctek" ],
+	"tags": [ "SendGrid", "AspNet Core", "WebHook", "Api" ],
+	"projectUrl": "https://github.com/edjCase/SendGrid.WebHooks",
+	"licenseUrl": "https://raw.githubusercontent.com/edjCase/SendGrid.WebHooks/master/LICENSE",
+	"releaseNotes": "Initial",
 
 	"dependencies": {
 		"Newtonsoft.Json": "8.0.3",
