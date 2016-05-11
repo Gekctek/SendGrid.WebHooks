@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace edjCase.SendGrid.WebHooks.Abstractions
 {
-	public interface IWebHookProcessor
+	public interface IWebHookHandler
 	{
 		Task OnProcessedAsync(ProcessedEvent processedEvent);
 		Task OnDelivieredAsync(DeliveredEvent deliveredEvent);
@@ -19,53 +19,53 @@ namespace edjCase.SendGrid.WebHooks.Abstractions
 		Task<bool> HandleException(WebHookEvent webHookEvent, Exception ex);
 	}
 
-	public static class WebHookProcessorExtensions
+	public static class WebHookHandlerExtensions
 	{
-		public static Task Run(this IWebHookProcessor webHookProcessor, WebHookEvent webHookEvent)
+		public static Task Run(this IWebHookHandler webHookHandler, WebHookEvent webHookEvent)
 		{
 			if (webHookEvent is DeliveredEvent)
 			{
-				return webHookProcessor.OnDelivieredAsync((DeliveredEvent) webHookEvent);
+				return webHookHandler.OnDelivieredAsync((DeliveredEvent) webHookEvent);
 			}
 			if (webHookEvent is ProcessedEvent)
 			{
-				return webHookProcessor.OnProcessedAsync((ProcessedEvent)webHookEvent);
+				return webHookHandler.OnProcessedAsync((ProcessedEvent)webHookEvent);
 			}
 			if (webHookEvent is OpenEvent)
 			{
-				return webHookProcessor.OnOpenAsync((OpenEvent)webHookEvent);
+				return webHookHandler.OnOpenAsync((OpenEvent)webHookEvent);
 			}
 			if (webHookEvent is ClickEvent)
 			{
-				return webHookProcessor.OnClickAsync((ClickEvent)webHookEvent);
+				return webHookHandler.OnClickAsync((ClickEvent)webHookEvent);
 			}
 			if (webHookEvent is SpamEvent)
 			{
-				return webHookProcessor.OnSpamReportAsync((SpamEvent)webHookEvent);
+				return webHookHandler.OnSpamReportAsync((SpamEvent)webHookEvent);
 			}
 			if (webHookEvent is DeferredEvent)
 			{
-				return webHookProcessor.OnDeferredAsync((DeferredEvent)webHookEvent);
+				return webHookHandler.OnDeferredAsync((DeferredEvent)webHookEvent);
 			}
 			if (webHookEvent is DroppedEvent)
 			{
-				return webHookProcessor.OnDroppedAsync((DroppedEvent)webHookEvent);
+				return webHookHandler.OnDroppedAsync((DroppedEvent)webHookEvent);
 			}
 			if (webHookEvent is BounceEvent)
 			{
-				return webHookProcessor.OnBouncedAsync((BounceEvent)webHookEvent);
+				return webHookHandler.OnBouncedAsync((BounceEvent)webHookEvent);
 			}
 			if (webHookEvent is UnsubscribeEvent)
 			{
-				return webHookProcessor.OnUnsubscribeAsync((UnsubscribeEvent)webHookEvent);
+				return webHookHandler.OnUnsubscribeAsync((UnsubscribeEvent)webHookEvent);
 			}
 			if (webHookEvent is GroupUnsubscribeEvent)
 			{
-				return webHookProcessor.OnGroupUnsubscribeEvent((GroupUnsubscribeEvent)webHookEvent);
+				return webHookHandler.OnGroupUnsubscribeEvent((GroupUnsubscribeEvent)webHookEvent);
 			}
 			if (webHookEvent is GroupResubscribeEvent)
 			{
-				return webHookProcessor.OnGroupResubscribeEvent((GroupResubscribeEvent)webHookEvent);
+				return webHookHandler.OnGroupResubscribeEvent((GroupResubscribeEvent)webHookEvent);
 			}
 			throw new ArgumentOutOfRangeException(nameof(webHookEvent));
 		}

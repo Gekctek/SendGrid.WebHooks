@@ -10,138 +10,143 @@ namespace edjCase.SendGrid.WebHooks
 	public abstract class WebHookEvent
 	{
 		[JsonProperty("email")]
-		public string EmailAddress { get; private set; }
+		public string EmailAddress { get; set; }
 		[JsonProperty("timestamp")]
 		[JsonConverter(typeof(UnixDateTimeConverter))]
-		public DateTime TimeStamp { get; private set; }
+		public DateTime TimeStamp { get; set; }
 		[JsonProperty("category")]
 		[JsonConverter(typeof(StringListOrItemConverter))]
-		public List<string> Category { get; private set; }
+		public List<string> Category { get; set; }
 		[JsonProperty("event")]
 		[JsonConverter(typeof(EventTypeConverter))]
-		public EventType Event { get; private set; }
+		public EventType Event { get; set; }
 		[JsonProperty("sg_event_id")]
-		public string InternalEventId { get; private set; }
+		public string InternalEventId { get; set; }
 		[JsonProperty("sg_message_id")]
-		public string InternalMessageId { get; private set; }
+		public string InternalMessageId { get; set; }
 		[JsonIgnore]
-		public Dictionary<string, JToken> RawProperties { get; private set; } = new Dictionary<string, JToken>();
+		public Dictionary<string, JToken> RawProperties { get; set; } = new Dictionary<string, JToken>();
 	}
 
 	public class BounceEvent : WebHookEvent
 	{
+
+		public BounceEvent()
+		{
+			
+		}
 		[JsonProperty("status")]
-		public string Status { get; private set; }
+		public string Status { get; set; }
 		[JsonProperty("smtp-id")]
-		public string SmtpId { get; private set; }
+		public string SmtpId { get; set; }
 		[JsonProperty("newletter")]
-		public EventNewsletter Newsletter { get; private set; }
+		public EventNewsletter Newsletter { get; set; }
 		[JsonProperty("asm_group_id")]
-		public int? AsmGroupId { get; private set; }
+		public int? AsmGroupId { get; set; }
 		[JsonProperty("reason")]
-		public string Reason { get; private set; }
+		public string Reason { get; set; }
 		[JsonProperty("ip")]
-		public string IpAddress { get; private set; }
+		public string IpAddress { get; set; }
 		[JsonProperty("tls")]
-		public bool? Tls { get; private set; }
+		public bool? Tls { get; set; }
 		[JsonProperty("cert_err")]
-		public bool? CertificateError { get; private set; }
+		public bool? CertificateError { get; set; }
 	}
 
 	public class ClickEvent : WebHookEvent
 	{
 		[JsonProperty("url")]
-		public string Url { get; private set; }
+		public string Url { get; set; }
 		[JsonProperty("url_offset")]
-		public string UrlOffset { get; private set; }
+		public string UrlOffset { get; set; }
 		[JsonProperty("ip")]
-		public string IpAddress { get; private set; }
+		public string IpAddress { get; set; }
 		[JsonProperty("useragent")]
-		public string UserAgent { get; private set; }
+		public string UserAgent { get; set; }
 		[JsonProperty("newsletter")]
-		public EventNewsletter Newsletter { get; private set; }
+		public EventNewsletter Newsletter { get; set; }
 		[JsonProperty("asm_group_id")]
-		public int? AsmGroupId { get; private set; }
+		public int? AsmGroupId { get; set; }
 	}
 
 	public class DeferredEvent : WebHookEvent
 	{
 		[JsonProperty("response")]
-		public string Response { get; private set; }
+		public string Response { get; set; }
 
 		[JsonProperty("attempt")]
-		public int Attempt { get; private set; }
+		public int Attempt { get; set; }
 
 		[JsonProperty("smtp-id")]
-		public string SmtpId { get; private set; }
+		public string SmtpId { get; set; }
 
 		[JsonProperty("ip")]
-		public string IpAddress { get; private set; }
+		public string IpAddress { get; set; }
 
 		[JsonProperty("tls")]
-		public bool? Tls { get; private set; }
+		public bool? Tls { get; set; }
 
 		[JsonProperty("cert_err")]
-		public bool? CertificateError { get; private set; }
+		public bool? CertificateError { get; set; }
 
 		[JsonProperty("asm_group_id")]
-		public int? AsmGroupId { get; private set; }
+		public int? AsmGroupId { get; set; }
 
 		[JsonProperty("newsletter")]
-		public EventNewsletter Newsletter { get; private set; }
+		public EventNewsletter Newsletter { get; set; }
 
 	}
 	public class DeliveredEvent : WebHookEvent
 	{
 		[JsonProperty("response")]
-		public string Response { get; private set; }
+		public string Response { get; set; }
 		[JsonProperty("smtp-id")]
-		public string SmtpId { get; private set; }
+		public string SmtpId { get; set; }
 		[JsonProperty("asm_group_id")]
-		public int? AsmGroupId { get; private set; }
+		public int? AsmGroupId { get; set; }
 
 		[JsonProperty("newsletter")]
-		public EventNewsletter Newsletter { get; private set; }
+		public EventNewsletter Newsletter { get; set; }
 		[JsonProperty("ip")]
-		public string IpAddress { get; private set; }
+		public string IpAddress { get; set; }
 
 		[JsonProperty("tls")]
-		public bool? Tls { get; private set; }
+		public bool? Tls { get; set; }
 
 		[JsonProperty("cert_err")]
-		public bool? CertificateError { get; private set; }
+		public bool? CertificateError { get; set; }
 	}
 
 	public class DroppedEvent : WebHookEvent
 	{
 		[JsonProperty("smtp-id")]
-		public string SmtpId { get; private set; }
+		public string SmtpId { get; set; }
 		[JsonProperty("reason")]
-		public string Reason { get; private set; }
+		public string Reason { get; set; }
 	}
 	public class OpenEvent : WebHookEvent
 	{
 		[JsonProperty("ip")]
-		public string IpAddress { get; private set; }
+		public string IpAddress { get; set; }
 		[JsonProperty("useragent")]
-		public string UserAgent { get; private set; }
+		public string UserAgent { get; set; }
 		[JsonProperty("asm_group_id")]
-		public int? AsmGroupId { get; private set; }
+		public int? AsmGroupId { get; set; }
 		[JsonProperty("newsletter")]
-		public EventNewsletter Newsletter { get; private set; }
+		public EventNewsletter Newsletter { get; set; }
 	}
 
 	public class ProcessedEvent : WebHookEvent
 	{
 		[JsonProperty("smtp-id")]
-		public string SmtpId { get; private set; }
+		public string SmtpId { get; set; }
 		[JsonProperty("asm_group_id")]
-		public int? AsmGroupId { get; private set; }
+		public int? AsmGroupId { get; set; }
 		[JsonProperty("newsletter")]
-		public EventNewsletter Newsletter { get; private set; }
+		public EventNewsletter Newsletter { get; set; }
 		[JsonProperty("send_at")]
 		[JsonConverter(typeof(UnixDateTimeConverter))]
-		public DateTime? SendAt { get; private set; }
+		public DateTime? SendAt { get; set; }
 	}
 
 
@@ -150,33 +155,33 @@ namespace edjCase.SendGrid.WebHooks
 	public class SpamEvent : WebHookEvent
 	{
 		[JsonProperty("asm_group_id")]
-		public int AsmGroupId { get; private set; }
+		public int AsmGroupId { get; set; }
 	}
 
 	public class UnsubscribeEvent : WebHookEvent
 	{
 		[JsonProperty("asm_group_id")]
-		public int AsmGroupId { get; private set; }
+		public int AsmGroupId { get; set; }
 	}
 
 	public class GroupUnsubscribeEvent : WebHookEvent
 	{
 		[JsonProperty("asm_group_id")]
-		public int AsmGroupId { get; private set; }
+		public int AsmGroupId { get; set; }
 		[JsonProperty("ip")]
-		public string IpAddress { get; private set; }
+		public string IpAddress { get; set; }
 		[JsonProperty("useragent")]
-		public string UserAgent { get; private set; }
+		public string UserAgent { get; set; }
 	}
 
 	public class GroupResubscribeEvent : WebHookEvent
 	{
 		[JsonProperty("asm_group_id")]
-		public int AsmGroupId { get; private set; }
+		public int AsmGroupId { get; set; }
 		[JsonProperty("ip")]
-		public string IpAddress { get; private set; }
+		public string IpAddress { get; set; }
 		[JsonProperty("useragent")]
-		public string UserAgent { get; private set; }
+		public string UserAgent { get; set; }
 	}
 
 	public enum EventType
@@ -212,10 +217,10 @@ namespace edjCase.SendGrid.WebHooks
 	public class EventNewsletter
 	{
 		[JsonProperty("newsletter_user_list_id", Required = Required.Always)]
-		public string UserListId { get; private set; }
+		public string UserListId { get; set; }
 		[JsonProperty("newsletter_id", Required = Required.Always)]
-		public string Id { get; private set; }
+		public string Id { get; set; }
 		[JsonProperty("newsletter_send_id", Required = Required.Always)]
-		public string SendId { get; private set; }
+		public string SendId { get; set; }
 	}
 }

@@ -1,11 +1,11 @@
 ﻿{
-	"version": "1.0.0-rc1-1",
+	"version": "1.0.0-rc1-3",
 	"description": "WebHook middleware for the SendGrid api using AspNet Core.",
 	"authors": [ "Gekctek" ],
 	"tags": [ "SendGrid", "AspNet Core", "WebHook", "Api" ],
 	"projectUrl": "https://github.com/edjCase/SendGrid.WebHooks",
 	"licenseUrl": "https://raw.githubusercontent.com/edjCase/SendGrid.WebHooks/master/LICENSE",
-	"releaseNotes": "Initial",
+	"releaseNotes": "Making event objects have public setters for ease of use when testing.",
 
 	"dependencies": {
 		"Newtonsoft.Json": "8.0.3",
