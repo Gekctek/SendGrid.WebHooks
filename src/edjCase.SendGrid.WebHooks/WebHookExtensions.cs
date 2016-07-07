@@ -53,7 +53,7 @@ namespace Microsoft.AspNetCore.Builder
 					{
 						try
 						{
-							bool handled = await webHookHandler.HandleException(webHookEvent, ex1);
+							bool handled = await webHookHandler.HandleExceptionAsync(webHookEvent, ex1);
 							if (!handled)
 							{
 								unhandledErrors.Add(ex1);

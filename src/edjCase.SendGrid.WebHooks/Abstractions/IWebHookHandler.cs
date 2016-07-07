@@ -14,9 +14,9 @@ namespace edjCase.SendGrid.WebHooks.Abstractions
 		Task OnDeferredAsync(DeferredEvent deferredEvent);
 		Task OnSpamReportAsync(SpamEvent spamEvent);
 		Task OnUnsubscribeAsync(UnsubscribeEvent unsubscribeEvent);
-		Task OnGroupUnsubscribeEvent(GroupUnsubscribeEvent groupUnsubscribeEvent);
-		Task OnGroupResubscribeEvent(GroupResubscribeEvent groupResubscribeEvent);
-		Task<bool> HandleException(WebHookEvent webHookEvent, Exception ex);
+		Task OnGroupUnsubscribeAsync(GroupUnsubscribeEvent groupUnsubscribeEvent);
+		Task OnGroupResubscribeAsync(GroupResubscribeEvent groupResubscribeEvent);
+		Task<bool> HandleExceptionAsync(WebHookEvent webHookEvent, Exception ex);
 	}
 
 	public static class WebHookHandlerExtensions
@@ -61,11 +61,11 @@ namespace edjCase.SendGrid.WebHooks.Abstractions
 			}
 			if (webHookEvent is GroupUnsubscribeEvent)
 			{
-				return webHookHandler.OnGroupUnsubscribeEvent((GroupUnsubscribeEvent)webHookEvent);
+				return webHookHandler.OnGroupUnsubscribeAsync((GroupUnsubscribeEvent)webHookEvent);
 			}
 			if (webHookEvent is GroupResubscribeEvent)
 			{
-				return webHookHandler.OnGroupResubscribeEvent((GroupResubscribeEvent)webHookEvent);
+				return webHookHandler.OnGroupResubscribeAsync((GroupResubscribeEvent)webHookEvent);
 			}
 			throw new ArgumentOutOfRangeException(nameof(webHookEvent));
 		}

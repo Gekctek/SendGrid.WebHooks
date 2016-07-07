@@ -1,5 +1,5 @@
 ﻿{
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "WebHook middleware for the SendGrid api using AspNet Core.",
 	"authors": [ "Gekctek" ],
 
@@ -7,7 +7,7 @@
 		"tags": [ "SendGrid", "AspNet Core", "WebHook", "Api" ],
 		"projectUrl": "https://github.com/edjCase/SendGrid.WebHooks",
 		"licenseUrl": "https://raw.githubusercontent.com/edjCase/SendGrid.WebHooks/master/LICENSE",
-		"releaseNotes": "Upgrading to RTM"
+		"releaseNotes": "Fixing naming inconsistencies"
 	},
 
 	"dependencies": {
