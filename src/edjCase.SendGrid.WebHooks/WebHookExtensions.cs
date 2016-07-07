@@ -7,7 +7,7 @@ using edjCase.SendGrid.WebHooks.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
 // ReSharper disable once CheckNamespace
-namespace Microsoft.AspNet.Builder
+namespace Microsoft.AspNetCore.Builder
 {
 	public static class WebHookExtensions
 	{

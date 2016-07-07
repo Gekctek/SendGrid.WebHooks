@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 using edjCase.SendGrid.WebHooks.Abstractions;
-using Microsoft.AspNet.Http;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
 namespace edjCase.SendGrid.WebHooks
