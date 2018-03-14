@@ -58,7 +58,7 @@ namespace edjCase.SendGrid.WebHooks
 		[JsonProperty("url")]
 		public string Url { get; set; }
 		[JsonProperty("url_offset")]
-		public string UrlOffset { get; set; }
+		public UrlOffset UrlOffset { get; set; }
 		[JsonProperty("ip")]
 		public string IpAddress { get; set; }
 		[JsonProperty("useragent")]
@@ -223,4 +223,12 @@ namespace edjCase.SendGrid.WebHooks
 		[JsonProperty("newsletter_send_id", Required = Required.Always)]
 		public string SendId { get; set; }
 	}
+	
+	public class UrlOffset
+    	{
+        	[JsonProperty("index")]
+        	public int Index { get; set; }
+        	[JsonProperty("type")]
+        	public string Type { get; set; }
+        }
 }
