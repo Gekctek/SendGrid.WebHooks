@@ -1,16 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A90EE21B-288B-4283-8E29-85359C5F2815}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E3C2D709-C2CE-4EA2-A28E-D9DCD3BBACD3}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "EdjCase.SendGrid.WebHooks", "src\EdjCase.SendGrid.WebHooks\EdjCase.SendGrid.WebHooks.xproj", "{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdjCase.SendGrid.WebHooks", "src\EdjCase.SendGrid.WebHooks\EdjCase.SendGrid.WebHooks.csproj", "{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,5 +25,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF} = {A90EE21B-288B-4283-8E29-85359C5F2815}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F923CF94-7BE9-48C9-89B5-7E4A4BBF5765}
 	EndGlobalSection
 EndGlobal
