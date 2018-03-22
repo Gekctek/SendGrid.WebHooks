@@ -18,7 +18,7 @@ namespace edjCase.SendGrid.WebHooks
 			}
 			var webHookEvent = JsonConvert.DeserializeObject<List<WebHookEvent>>(requestBody, new WebHookEventConverter());
 
-			return webHookEvent;
+			return webHookEvent ?? new List<WebHookEvent>();
 		}
 	}
 }

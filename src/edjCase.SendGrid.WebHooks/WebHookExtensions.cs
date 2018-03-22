@@ -14,21 +14,21 @@ namespace Microsoft.AspNetCore.Builder
 		public static IServiceCollection AddSendGridWebHook(this IServiceCollection serviceCollection)
 		{
 			return serviceCollection
-				.AddScoped<IWebHookParser, WebHookParser>();
+				.AddSingleton<IWebHookParser, WebHookParser>();
 		}
 
 		public static IServiceCollection AddSendGridWebHookWithHandler<THandler>(this IServiceCollection serviceCollection)
 			where THandler : class, IWebHookHandler
 		{
 			return serviceCollection
-				.AddScoped<IWebHookParser, WebHookParser>()
+				.AddSingleton<IWebHookParser, WebHookParser>()
 				.AddScoped<IWebHookHandler, THandler>();
 		}
 
 		public static IServiceCollection AddSendGridWebHookWithHandler(this IServiceCollection serviceCollection, Func<IServiceProvider, IWebHookHandler> webHookHandlerFactory)
 		{
 			return serviceCollection
-				.AddScoped<IWebHookParser, WebHookParser>()
+				.AddSingleton<IWebHookParser, WebHookParser>()
 				.AddScoped(webHookHandlerFactory);
 		}
 

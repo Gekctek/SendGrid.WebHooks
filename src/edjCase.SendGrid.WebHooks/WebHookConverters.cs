@@ -17,20 +17,36 @@ namespace edjCase.SendGrid.WebHooks
 
 		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
 		{
-			long unixTimestamp;
-			if (reader.Value is long)
+			double? unixTimestamp;
+			switch (reader.Value)
 			{
-				unixTimestamp = (long)reader.Value;
+				case long longValue:
+					unixTimestamp = longValue;
+					break;
+				case double doubleValue:
+					unixTimestamp = doubleValue;
+					break;
+				case string stringValue:
+					if (double.TryParse(stringValue, out double value))
+					{
+						unixTimestamp = value;
+					}
+					else
+					{
+						unixTimestamp = null;
+					}
+					break;
+				case null:
+					return null;
+				default:
+					unixTimestamp = null;
+					break;
 			}
-			else if (reader.Value is string)
-			{
-				unixTimestamp = long.Parse((string)reader.Value);
-			}
-			else
+			if (unixTimestamp == null)
 			{
 				throw new WebHookParseException($"Cannout cast or convert type '{reader.Value.GetType()}' to DateTime.");
 			}
-			return UnixDateTimeConverter.epoch.AddMilliseconds(unixTimestamp * 1000);
+			return UnixDateTimeConverter.epoch.AddMilliseconds(unixTimestamp.Value * 1000);
 		}
 
 		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

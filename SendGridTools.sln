@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EdjCase.SendGrid.WebHooks", "src\EdjCase.SendGrid.WebHooks\EdjCase.SendGrid.WebHooks.csproj", "{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0FCBD049-A32F-45FF-B143-81567ED28BF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHookTester", "test\WebHookTester\WebHookTester.csproj", "{433B6387-09FC-4796-AA2E-0BD848090A54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +23,17 @@ Global
 		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{433B6387-09FC-4796-AA2E-0BD848090A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{433B6387-09FC-4796-AA2E-0BD848090A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{433B6387-09FC-4796-AA2E-0BD848090A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{433B6387-09FC-4796-AA2E-0BD848090A54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{02B7F6CD-0AF4-474E-A9A5-42DD2EEB9AAF} = {A90EE21B-288B-4283-8E29-85359C5F2815}
+		{433B6387-09FC-4796-AA2E-0BD848090A54} = {0FCBD049-A32F-45FF-B143-81567ED28BF0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F923CF94-7BE9-48C9-89B5-7E4A4BBF5765}
