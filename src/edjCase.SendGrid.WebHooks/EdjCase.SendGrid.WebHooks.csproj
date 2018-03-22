@@ -2,13 +2,13 @@
 
 	<PropertyGroup>
 		<Description>WebHook middleware for the SendGrid api using AspNet Core.</Description>
-		<VersionPrefix>2.0.0</VersionPrefix>
+		<VersionPrefix>2.0.1</VersionPrefix>
 		<Authors>Gekctek</Authors>
 		<TargetFrameworks>netstandard2.0;netstandard1.3</TargetFrameworks>
 		<AssemblyName>EdjCase.SendGrid.WebHooks</AssemblyName>
 		<PackageId>EdjCase.SendGrid.WebHooks</PackageId>
 		<PackageTags>SendGrid;AspNet Core;WebHook;Api</PackageTags>
-		<PackageReleaseNotes>Upgrading to netstandard 2</PackageReleaseNotes>
+		<PackageReleaseNotes>Fixing date parsing bug</PackageReleaseNotes>
 		<PackageProjectUrl>https://github.com/edjCase/SendGrid.WebHooks</PackageProjectUrl>
 		<PackageLicenseUrl>https://raw.githubusercontent.com/edjCase/SendGrid.WebHooks/master/LICENSE</PackageLicenseUrl>
 		<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
