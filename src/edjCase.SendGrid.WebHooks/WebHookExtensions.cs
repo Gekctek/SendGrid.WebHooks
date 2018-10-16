@@ -38,8 +38,8 @@ namespace Microsoft.AspNetCore.Builder
 			WebHookExtensions.ValidateWebHookHandler(app);
 			return app.Use(async (httpContext, next) =>
 			{
-				var webHookParser = app.ApplicationServices.GetRequiredService<IWebHookParser>();
-				var webHookHandler = app.ApplicationServices.GetRequiredService<IWebHookHandler>();
+				var webHookParser = httpContext.RequestServices.GetRequiredService<IWebHookParser>();
+				var webHookHandler = httpContext.RequestServices.GetRequiredService<IWebHookHandler>();
 
 				var unhandledErrors = new List<Exception>();
 				List<WebHookEvent> webHookEvents = await webHookParser.ParseAsync(httpContext);
@@ -74,7 +74,7 @@ namespace Microsoft.AspNetCore.Builder
 			WebHookExtensions.ValidateWebHookParser(app);
 			return app.Use(async (httpContext, next) =>
 			{
-				var webHookParser = app.ApplicationServices.GetRequiredService<IWebHookParser>();
+				var webHookParser = httpContext.RequestServices.GetRequiredService<IWebHookParser>();
 				List<WebHookEvent> webHookEvents = await webHookParser.ParseAsync(httpContext);
 
 				var unhandledErrors = new List<Exception>();
