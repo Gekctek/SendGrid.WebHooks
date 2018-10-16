@@ -20,6 +20,8 @@ namespace edjCase.SendGrid.WebHooks
 			double? unixTimestamp;
 			switch (reader.Value)
 			{
+				case DateTime dateTimeValue:
+					return dateTimeValue;
 				case long longValue:
 					unixTimestamp = longValue;
 					break;
@@ -94,6 +96,11 @@ namespace edjCase.SendGrid.WebHooks
 
 		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
 		{
+			if (existingValue is EventType)
+			{
+				return existingValue;
+			}
+			
 			string eventType = (string)reader.Value;
 			switch (eventType)
 			{
@@ -139,6 +146,11 @@ namespace edjCase.SendGrid.WebHooks
 
 		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
 		{
+			if (existingValue is WebHookEvent)
+			{
+				return existingValue;
+			}
+			
 			JObject jObject = JObject.Load(reader);
 			string eventType = jObject["event"].Value<string>();
 			WebHookEvent webHookEvent;
